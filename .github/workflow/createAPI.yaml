@@ -1,0 +1,16 @@
+name: TEST FOR GHA STEP VARIABLES
+
+on:
+  workflow_dispatch: # manual run
+
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - id: step1
+        run: echo ::set-output name=docker_tag::$(aws s3 ls)
+      - id: step2
+        run: echo "::set-output name=test::world"
+      - id: step3
+        run: echo ${{steps.step1.outputs.docker_tag}} ${{steps.step2.outputs.test}}

@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: step1
-        run: echo ::set-output name=docker_tag::$((10 + 15
+        run: echo ::set-output name=docker_tag::$((10 + 15 \
         + 20))
       - id: step2
         run: echo "::set-output name=test::world"
